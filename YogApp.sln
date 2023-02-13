@@ -5,9 +5,15 @@ VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YogApp.API", "YogApp.API\YogApp.API.csproj", "{FBE1C098-5EC6-465F-ACAB-8A21BD0AC51F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YogAPP.Domain", "YogAPP.Domain\YogAPP.Domain.csproj", "{42487957-CFA8-441A-9B08-D9DFC7C84A45}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YogApp.Infrastructure", "YogApp.Infrastructure\YogApp.Infrastructure.csproj", "{07CAEDB2-C066-4339-A23B-1ED6046AC79E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YogApp.Infrastructure", "YogApp.Infrastructure\YogApp.Infrastructure.csproj", "{07CAEDB2-C066-4339-A23B-1ED6046AC79E}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{CD6868C2-1BB9-4FB6-A46F-6FFDF36DB456}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YogApp.DomainTests", "YogApp.DomainTests\YogApp.DomainTests.csproj", "{FC03F810-9984-4AE8-827A-1EA2FEAB8305}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YogApp.IntegrationTests", "YogApp.IntegrationTests\YogApp.IntegrationTests.csproj", "{F75AF064-0355-453D-BB0B-624575D7FBCB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YogApp.Domain", "YogApp.Domain\YogApp.Domain.csproj", "{880BAC5E-3E76-4B58-8C78-6D2AC811C666}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,17 +25,29 @@ Global
 		{FBE1C098-5EC6-465F-ACAB-8A21BD0AC51F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FBE1C098-5EC6-465F-ACAB-8A21BD0AC51F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FBE1C098-5EC6-465F-ACAB-8A21BD0AC51F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{42487957-CFA8-441A-9B08-D9DFC7C84A45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{42487957-CFA8-441A-9B08-D9DFC7C84A45}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{42487957-CFA8-441A-9B08-D9DFC7C84A45}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{42487957-CFA8-441A-9B08-D9DFC7C84A45}.Release|Any CPU.Build.0 = Release|Any CPU
 		{07CAEDB2-C066-4339-A23B-1ED6046AC79E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{07CAEDB2-C066-4339-A23B-1ED6046AC79E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{07CAEDB2-C066-4339-A23B-1ED6046AC79E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{07CAEDB2-C066-4339-A23B-1ED6046AC79E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC03F810-9984-4AE8-827A-1EA2FEAB8305}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC03F810-9984-4AE8-827A-1EA2FEAB8305}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC03F810-9984-4AE8-827A-1EA2FEAB8305}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC03F810-9984-4AE8-827A-1EA2FEAB8305}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F75AF064-0355-453D-BB0B-624575D7FBCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F75AF064-0355-453D-BB0B-624575D7FBCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F75AF064-0355-453D-BB0B-624575D7FBCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F75AF064-0355-453D-BB0B-624575D7FBCB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{880BAC5E-3E76-4B58-8C78-6D2AC811C666}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{880BAC5E-3E76-4B58-8C78-6D2AC811C666}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{880BAC5E-3E76-4B58-8C78-6D2AC811C666}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{880BAC5E-3E76-4B58-8C78-6D2AC811C666}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{FC03F810-9984-4AE8-827A-1EA2FEAB8305} = {CD6868C2-1BB9-4FB6-A46F-6FFDF36DB456}
+		{F75AF064-0355-453D-BB0B-624575D7FBCB} = {CD6868C2-1BB9-4FB6-A46F-6FFDF36DB456}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4E5ACF3C-CD89-4E50-B585-0522D3108C0A}
