@@ -1,0 +1,28 @@
+trigger: none
+
+variables:
+  testProjectsPattern: |
+    **/*Tests.csproj
+
+name: $(date:yyyyMMdd)$(rev:.r) ($(SourceBranchName).$(BuildId))
+
+jobs:
+  - job: Build
+    displayName: Build & Test
+    steps:
+      - task: DotnetCoreCLI@2
+        displayName: dotnet restore
+        inputs:
+          command: 'restore'
+          projects: '**/**.sln'
+      - task: DotNetCoreCLI@2
+        displayName: dotnet build
+        inputs:
+          command: 'build'
+          projects: '**/**.sln'
+          arguments: -c Release
+      - task: DotNetCoreCLI@2
+        displayName: dotnet test
+        inputs:
+          command: 'test'
+          projects: $(testProjectsPattern)
