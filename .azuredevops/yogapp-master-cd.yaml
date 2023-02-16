@@ -6,7 +6,7 @@ pool:
 
 variables:
   buildConfiguration: 'Release'
-  appName: 'yogapp-nathan'
+  appName: 'yogapp-nathan-api'
   appServicePlan: 'yogapp-nathan-dev-001'
   resourceGroup: 'rg-stage-2022-yogapp-nathan'
   serviceConnection: 'svc-azure-nathan'
