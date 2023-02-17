@@ -1,15 +1,10 @@
-using YogApp.API.Schema.Queries;
-
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddGraphQLServer()
-    //queries
-    .AddQueryType()
-        .AddTypeExtension<Query>();
+builder.Services
+    .AddGraphQLServer()
+    .AddTypes();
 
 var app = builder.Build();
-
-app.UseHttpsRedirection();
 
 //app.UseAuthorization();
 

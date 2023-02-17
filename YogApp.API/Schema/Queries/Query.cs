@@ -1,9 +1,9 @@
 ﻿namespace YogApp.API.Schema.Queries;
 
-[ExtendObjectType(OperationTypeNames.Query)]
-public class Query
+[QueryType]
+public static class Query
 {
-    public string TestQuery()
+    public static string TestQuery()
     {
         return "this is a query";
     }
