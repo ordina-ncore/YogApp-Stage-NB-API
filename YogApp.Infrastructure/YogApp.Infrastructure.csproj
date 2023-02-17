@@ -14,4 +14,8 @@
 	  <Folder Include="Migrations\" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <ProjectReference Include="..\YogApp.Domain\YogApp.Domain.csproj" />
+	</ItemGroup>
+
 </Project>

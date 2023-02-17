@@ -1,4 +1,5 @@
 ﻿using LanguageExt.Common;
+using YogApp.Domain.Shared;
 
 namespace YogApp.Infrastructure.Repositories;
 
