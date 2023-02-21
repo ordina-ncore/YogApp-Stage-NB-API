@@ -35,7 +35,7 @@ namespace YogApp.Domain.Users
         public static UserDomain Create(string firstName, string lastName, string profilePicture, DateOnly birthDate)
         {
             return new UserDomain(
-                new Guid(),
+                Guid.NewGuid(),
                 null,
                 firstName,
                 lastName,

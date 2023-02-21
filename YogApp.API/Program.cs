@@ -23,6 +23,11 @@ app.UseCors(corsOptions => corsOptions
         )
     .UseRouting();
 
+app.CreateDbIfNotExists();
+// Configure the HTTP request pipeline.
+
+app.UseHttpsRedirection();
+
 //app.UseAuthorization();
 
 app.MapGraphQL();

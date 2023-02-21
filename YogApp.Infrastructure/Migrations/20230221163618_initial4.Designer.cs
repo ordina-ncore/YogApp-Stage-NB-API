@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using YogApp.Infrastructure.Data;
@@ -11,9 +12,11 @@ using YogApp.Infrastructure.Data;
 namespace YogApp.Infrastructure.Migrations
 {
     [DbContext(typeof(YogAppDbContext))]
-    partial class YogAppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230221163618_initial4")]
+    partial class initial4
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

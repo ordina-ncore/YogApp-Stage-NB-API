@@ -34,17 +34,34 @@ public class SessionDomain
     public static SessionDomain Create(string title, DateTime start, DateTime end, int capacity, UserEntity teacher, RoomEntity room)
     {
         return new SessionDomain(
-            new Guid(), 
+            Guid.NewGuid(), 
             title,
-            start,
-            end,
+            start.ToUniversalTime(),
+            end.ToUniversalTime(),
             capacity,
             teacher,
-            DateTime.Now.ToString(),
+            DateTime.Now.ToUniversalTime().ToString(),
             false,
             false,
             room,
             null,
+            false
+            );
+    }
+    public static SessionDomain Create(string title, DateTime start, DateTime end, int capacity, UserEntity teacher, RoomEntity room, List<SessionParticipantEntity> participants)
+    {
+        return new SessionDomain(
+            Guid.NewGuid(),
+            title,
+            start.ToUniversalTime(),
+            end.ToUniversalTime(),
+            capacity,
+            teacher,
+            DateTime.Now.ToUniversalTime().ToString(),
+            false,
+            false,
+            room,
+            participants,
             false
             );
     }

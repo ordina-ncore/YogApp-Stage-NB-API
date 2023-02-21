@@ -33,9 +33,9 @@ namespace YogApp.Domain.SessionParticipants
         public static SessionParticipantDomain Create(int matNumber, UserEntity user)
         {
             return new SessionParticipantDomain(
-                new Guid(),
+                Guid.NewGuid(),
                 matNumber,
-                DateTime.Now.ToString(),
+                DateTime.Now.ToUniversalTime().ToString(),
                 false,
                 user,
                 false

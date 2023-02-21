@@ -32,7 +32,7 @@ namespace YogApp.Domain.Rooms
         public static RoomDomain Create(string name, string address, int capacity)
         {
             return new RoomDomain(
-                new Guid(),
+                Guid.NewGuid(),
                 name,
                 address,
                 capacity,
