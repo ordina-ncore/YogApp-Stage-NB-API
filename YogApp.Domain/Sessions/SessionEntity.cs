@@ -14,11 +14,11 @@ public class SessionEntity : EntityBase
     public int Capacity { get; set; }
     public UserEntity Teacher { get; set; }
     [Timestamp]
-    public byte[] TimeStampAdded { get; set; }
+    public string TimeStampAdded { get; set; }
     public bool IsCancelled { get; set; }
     public bool IsFull { get; set; }
     public RoomEntity Room { get; set; }
-    public List<SessionParticipantEntity> Participants { get; set; }
+    public List<SessionParticipantEntity>? Participants { get; set; }
 
 
 }

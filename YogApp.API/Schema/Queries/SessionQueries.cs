@@ -1,7 +1,7 @@
 ﻿namespace YogApp.API.Schema.Queries;
 
 [QueryType]
-public static class Query
+public static class SessionQueries
 {
     public static string TestQuery()
     {

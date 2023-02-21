@@ -10,6 +10,7 @@ namespace YogApp.Domain.Users
 {
     public class UserEntity: EntityBase
     {
+        public string? AzureId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string ProfilePicture { get; set; }
