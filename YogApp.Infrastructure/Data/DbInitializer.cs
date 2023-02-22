@@ -43,8 +43,10 @@ namespace YogApp.Infrastructure.Data
             SessionEntity sd1 = SessionDomain.Create("Introductiesessie voor beginners", new DateTime(2023, 03, 05, 15, 30, 00), new DateTime(2023, 03, 05, 16, 30, 00), 5, udTeacher.entity, rd3.entity, new List<SessionParticipantEntity> { spd1.entity, spd2.entity, spd3.entity }).entity;
             SessionEntity sd2 = SessionDomain.Create("Wekelijkse yogasessie", new DateTime(2023, 03, 07, 12, 00, 00), new DateTime(2023, 03, 05, 12, 45, 00), 15, udTeacher.entity, rd2.entity, new List<SessionParticipantEntity> { spd3.entity, spd4.entity, spd5.entity, spd6.entity }).entity;
 
-
-            context.sessions.AddRange( sd1, sd2);
+            context.users.AddRange(ud1.entity, ud2.entity, ud3.entity, ud4.entity, udTeacher.entity);
+            context.rooms.AddRange(rd1.entity, rd2.entity, rd3.entity);
+            context.sessionParticipants.AddRange(spd1.entity, spd2.entity, spd3.entity, spd4.entity, spd5.entity, spd6.entity);
+            context.sessions.AddRange(sd1, sd2);
             context.SaveChanges();
         }
     }

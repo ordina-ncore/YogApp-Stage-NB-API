@@ -1,10 +1,13 @@
 using Microsoft.EntityFrameworkCore;
 using YogApp.Infrastructure.Data;
+using YogApp.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services //register db context didnt work here, zie sample
     .AddGraphQLServer()
+    .AddFiltering()
+    .AddSorting()
     .AddTypes();
 
 builder.Services.AddCors().AddPooledDbContextFactory<YogAppDbContext>(optionsBuilder =>
@@ -13,6 +16,12 @@ builder.Services.AddCors().AddPooledDbContextFactory<YogAppDbContext>(optionsBui
         .GetConnectionString("yogappdb")));
 
 builder.Services.AddDbContext<YogAppDbContext>();
+
+builder.Services.AddScoped<IRoomRepository, RoomRepository>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<ISessionParticipantRepository, SessionParticipantRepository>();
+builder.Services.AddScoped<ISessionRepository, SessionRepository>();
+
 
 var app = builder.Build();
 

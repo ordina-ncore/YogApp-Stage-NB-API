@@ -1,18 +1,18 @@
 ﻿using YogApp.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
+using YogApp.Domain.Rooms;
 using YogApp.Infrastructure.Repositories;
-using YogApp.Domain.Sessions;
 
 namespace YogApp.API.Schema.Queries;
 
 [QueryType]
-public static class SessionQueries
+public static class RoomQueries
 {
 
     [UsePaging]
     [UseSorting]
     [UseFiltering]
-    public static List<SessionEntity> GetSessions([Service] ISessionRepository repo)
+    public static List<RoomEntity> GetRooms([Service] IRoomRepository repo)
     {
         return repo.GetAll();
     }

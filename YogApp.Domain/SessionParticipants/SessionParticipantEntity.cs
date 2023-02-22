@@ -12,7 +12,7 @@ namespace YogApp.Domain.SessionParticipants
     public class SessionParticipantEntity: EntityBase
     {
         public int MatNumber { get; set; }
-        [Timestamp]
+        //[Timestamp]
         public string TimeStampSignUp { get; set; }
         public bool HasCancelled { get; set; }
         public UserEntity User { get; set; }

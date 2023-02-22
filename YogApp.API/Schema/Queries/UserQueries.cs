@@ -1,18 +1,18 @@
 ﻿using YogApp.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using YogApp.Infrastructure.Repositories;
-using YogApp.Domain.Sessions;
+using YogApp.Domain.Users;
 
 namespace YogApp.API.Schema.Queries;
 
 [QueryType]
-public static class SessionQueries
+public static class UserQueries
 {
 
     [UsePaging]
     [UseSorting]
     [UseFiltering]
-    public static List<SessionEntity> GetSessions([Service] ISessionRepository repo)
+    public static List<UserEntity> GetUsers([Service] IUserRepository repo)
     {
         return repo.GetAll();
     }
