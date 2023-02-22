@@ -17,7 +17,7 @@ public static class UserQueries
     {
         return repo.GetAll();
     }
-    public static UserEntity? GetSession([Service] IUserRepository repo, Guid id)
+    public static UserEntity? GetUser([Service] IUserRepository repo, Guid id)
     {
         return repo.GetById(id);
     }

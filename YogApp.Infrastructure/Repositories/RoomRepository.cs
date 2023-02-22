@@ -18,10 +18,22 @@ namespace YogApp.Infrastructure.Repositories
         {
             _context = context;
         }
+
+        public void AppendChanges(RoomEntity entity)
+        {
+             _context.rooms.Add(entity);
+        }
+
+        public async Task SaveAsync(CancellationToken ct)
+        {
+            await _context.SaveChangesAsync(ct);
+        }
+
         public List<RoomEntity> GetAll()
         {
             return _context.rooms.ToList();
         }
+
         public RoomEntity? GetById(Guid id)
         {
             return _context.rooms.FirstOrDefault(x => x.Id == id);

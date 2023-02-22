@@ -19,10 +19,21 @@ namespace YogApp.Infrastructure.Repositories
         {
             _context = context;
         }
+        public void AppendChanges(UserEntity entity)
+        {
+            _context.users.Add(entity);
+        }
+
+        public async Task SaveAsync(CancellationToken ct)
+        {
+            await _context.SaveChangesAsync(ct);
+        }
+
         public List<UserEntity> GetAll()
         {
             return _context.users.ToList();
         }
+
         public UserEntity? GetById(Guid id)
         {
             return _context.users.FirstOrDefault(x => x.Id == id);

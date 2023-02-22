@@ -17,7 +17,7 @@ public static class SessionParticipantQueries
     {
         return repo.GetAll();
     }
-    public static SessionParticipantEntity? GetSessionParticipant([Service] IRoomRepository repo, Guid id)
+    public static SessionParticipantEntity? GetSessionParticipant([Service] ISessionParticipantRepository repo, Guid id)
     {
         return repo.GetById(id);
     }

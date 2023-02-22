@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using YogApp.Domain.Rooms;
 using YogApp.Domain.Sessions;
 using YogApp.Infrastructure.Data;
 
@@ -16,6 +17,15 @@ namespace YogApp.Infrastructure.Repositories
         public SessionRepository(YogAppDbContext context)
         {
             _context = context;
+        }
+        public void AppendChanges(SessionEntity entity)
+        {
+            _context.sessions.Add(entity);
+        }
+
+        public async Task SaveAsync(CancellationToken ct)
+        {
+            await _context.SaveChangesAsync(ct);
         }
         public List<SessionEntity> GetAll()
         {

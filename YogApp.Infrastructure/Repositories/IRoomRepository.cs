@@ -9,6 +9,8 @@ namespace YogApp.Infrastructure.Repositories
 {
     public interface IRoomRepository
     {
+        public Task SaveAsync(CancellationToken ct);
+        public void AppendChanges(RoomEntity entity);
         public List<RoomEntity> GetAll();
         public RoomEntity? GetById(Guid id);
     }
