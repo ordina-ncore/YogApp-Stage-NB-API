@@ -16,4 +16,8 @@ public static class SessionQueries
     {
         return repo.GetAll();
     }
+    public static SessionEntity? GetSession([Service] ISessionRepository repo, Guid id)
+    {
+        return repo.GetById(id);
+    }
 }

@@ -10,5 +10,6 @@ namespace YogApp.Infrastructure.Repositories
     public interface ISessionRepository
     {
         public List<SessionEntity> GetAll();
+        public SessionEntity? GetById(Guid id);
     }
 }

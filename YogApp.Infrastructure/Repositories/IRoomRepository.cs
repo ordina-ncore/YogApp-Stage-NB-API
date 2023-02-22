@@ -10,5 +10,6 @@ namespace YogApp.Infrastructure.Repositories
     public interface IRoomRepository
     {
         public List<RoomEntity> GetAll();
+        public RoomEntity? GetById(Guid id);
     }
 }

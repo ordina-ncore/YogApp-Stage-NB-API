@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using YogApp.Domain.Rooms;
 using YogApp.Domain.Sessions;
 using YogApp.Domain.Users;
 using YogApp.Infrastructure.Data;
@@ -21,6 +22,10 @@ namespace YogApp.Infrastructure.Repositories
         public List<UserEntity> GetAll()
         {
             return _context.users.ToList();
+        }
+        public UserEntity? GetById(Guid id)
+        {
+            return _context.users.FirstOrDefault(x => x.Id == id);
         }
     }
 }

@@ -21,5 +21,9 @@ namespace YogApp.Infrastructure.Repositories
         {
             return _context.sessions.Include(x => x.Teacher).Include(x => x.Room).Include(x => x.Participants).ThenInclude(x => x.User).ToList();
         }
+        public SessionEntity? GetById(Guid id)
+        {
+            return _context.sessions.Include(x => x.Teacher).Include(x => x.Room).Include(x => x.Participants).ThenInclude(x => x.User).FirstOrDefault(x => x.Id == id);
+        }
     }
 }
