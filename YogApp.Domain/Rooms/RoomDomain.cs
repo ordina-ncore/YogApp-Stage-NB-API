@@ -39,6 +39,7 @@ namespace YogApp.Domain.Rooms
                 false
                 );
         }
+
         //methods
     }
 }

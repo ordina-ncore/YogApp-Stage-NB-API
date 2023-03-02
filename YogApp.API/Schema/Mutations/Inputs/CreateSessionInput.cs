@@ -14,8 +14,8 @@ namespace YogApp.API.Schema.Mutations.Inputs
 
         public int Capacity { get; set; }
 
-        public UserEntity Teacher { get; set; }
+        public Guid TeacherId { get; set; }
 
-        public RoomEntity Room { get; set; }
+        public Guid RoomId { get; set; }
     }
 }

@@ -11,6 +11,7 @@
     </ItemGroup>
 
   <ItemGroup>
+	<PackageReference Include="GraphQL" Version="7.3.0" />
 	<PackageReference Include="HotChocolate.AspNetCore" Version="13.0.4" />
 	<PackageReference Include="HotChocolate.Data" Version="13.0.4" />
 	<PackageReference Include="HotChocolate.Types.Analyzers" Version="13.0.4">
@@ -27,6 +28,7 @@
 	  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 	</PackageReference>
 	<PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="7.0.3" />
+	<PackageReference Include="Realm" Version="10.20.0" />
   </ItemGroup>
 
   <ItemGroup>

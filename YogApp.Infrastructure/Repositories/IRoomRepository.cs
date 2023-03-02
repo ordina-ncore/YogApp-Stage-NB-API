@@ -13,5 +13,6 @@ namespace YogApp.Infrastructure.Repositories
         public void AppendChanges(RoomEntity entity);
         public List<RoomEntity> GetAll();
         public RoomEntity? GetById(Guid id);
+        public bool CheckAvailability(RoomEntity? room, DateTime startDate, DateTime endDate);
     }
 }

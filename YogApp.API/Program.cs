@@ -21,6 +21,7 @@ builder.Services.AddScoped<IRoomRepository, RoomRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<ISessionParticipantRepository, SessionParticipantRepository>();
 builder.Services.AddScoped<ISessionRepository, SessionRepository>();
+builder.Services.AddErrorFilter<GraphQLErrorFilter>();
 
 
 var app = builder.Build();
