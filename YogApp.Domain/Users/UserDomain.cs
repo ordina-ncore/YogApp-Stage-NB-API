@@ -45,5 +45,18 @@ namespace YogApp.Domain.Users
                 false
                 );
         }
+        public static UserDomain Create(string firstName, string lastName, string profilePicture, string azureId)
+        {
+            return new UserDomain(
+                Guid.NewGuid(),
+                azureId,
+                firstName,
+                lastName,
+                profilePicture,
+                new DateOnly(1970,1,1),
+                false,
+                false
+                );
+        }
     }
 }

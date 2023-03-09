@@ -7,11 +7,12 @@ namespace YogApp.API.Schema.Mutations;
 [MutationType]
 public class UserMutations
 {
-    public UserEntity? CreateUser([Service] IUserRepository repo, CreatUserInput input, CancellationToken ct)
+    public UserEntity? CreateUser([Service] IUserRepository repo, CreateUserInput input, CancellationToken ct)
     {
-        UserDomain user = UserDomain.Create(input.FirstName, input.LastName, input.ProfilePicture, input.BirthDate);
+        UserDomain user = UserDomain.Create(input.FirstName, input.LastName, input.ProfilePicture, input.AzureId);
         repo.AppendChanges(user.entity);
         repo.SaveAsync(ct);
         return user.entity;
     }
+
 }

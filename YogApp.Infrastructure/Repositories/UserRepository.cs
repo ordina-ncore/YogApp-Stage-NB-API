@@ -38,5 +38,9 @@ namespace YogApp.Infrastructure.Repositories
         {
             return _context.users.FirstOrDefault(x => x.Id == id);
         }
+        public UserEntity? GetByAzureId(string id)
+        {
+            return _context.users.FirstOrDefault(x => x.AzureId == id);
+        }
     }
 }

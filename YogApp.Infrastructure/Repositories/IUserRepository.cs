@@ -15,5 +15,6 @@ namespace YogApp.Infrastructure.Repositories
         public void AppendChanges(UserEntity entity);
         public List<UserEntity> GetAll();
         public UserEntity? GetById(Guid id);
+        public UserEntity? GetByAzureId(string id);
     }
 }

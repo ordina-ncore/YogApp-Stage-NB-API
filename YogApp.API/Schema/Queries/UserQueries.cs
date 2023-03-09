@@ -21,4 +21,8 @@ public static class UserQueries
     {
         return repo.GetById(id);
     }
+    public static UserEntity? GetUserByAzureId([Service] IUserRepository repo, string azureId)
+    {
+        return repo.GetByAzureId(azureId);
+    }
 }
