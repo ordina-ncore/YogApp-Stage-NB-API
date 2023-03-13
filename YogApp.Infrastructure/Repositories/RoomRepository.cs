@@ -38,11 +38,11 @@ namespace YogApp.Infrastructure.Repositories
         {
             return _context.rooms.FirstOrDefault(x => x.Id == id);
         }
-        public bool CheckAvailability(RoomEntity? concernedRoom, DateTime startDate, DateTime endDate)
+        public bool CheckAvailability(RoomEntity? selectedRoom, DateTime startDate, DateTime endDate)
         {
             List<SessionEntity> betweenDateTimesSessions = _context.sessions.Where(x => (x.StartDateTime >= startDate && x.StartDateTime <= endDate) || (x.EndDateTime >= startDate && x.EndDateTime <= endDate) && !x.IsCancelled && !x.IsDeleted).Include(x => x.Room).ToList();
             foreach(SessionEntity session in betweenDateTimesSessions) {
-                if(session.Room== concernedRoom)
+                if(session.Room== selectedRoom)
                 {
                     return false;
                 }

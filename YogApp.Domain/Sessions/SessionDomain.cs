@@ -1,4 +1,5 @@
-﻿using YogApp.Domain.Rooms;
+﻿using YogApp.Domain.Exceptions;
+using YogApp.Domain.Rooms;
 using YogApp.Domain.SessionParticipants;
 using YogApp.Domain.Users;
 
@@ -31,25 +32,33 @@ public class SessionDomain
     {
         return new SessionDomain(entity);
     }
+
     public static SessionDomain Create(string title, DateTime start, DateTime end, int capacity, UserEntity teacher, RoomEntity room)
     {
-        return new SessionDomain(
-            Guid.NewGuid(), 
-            title,
-            start.ToUniversalTime(),
-            end.ToUniversalTime(),
-            capacity,
-            teacher,
-            DateTime.Now.ToUniversalTime().ToString(),
-            false,
-            false,
-            room,
-            null,
-            false
-            );
-    }
-    public static SessionDomain Create(string title, DateTime start, DateTime end, int capacity, UserEntity teacher, RoomEntity room, List<SessionParticipantEntity> participants)
-    {
+        if (capacity > room.Capacity)
+        {
+            throw new ParticipantsExceedRoomCapacityException();
+        };
+
+        if (start < DateTime.UtcNow)
+        {
+            throw new SessionCanNotBeInThePastException();
+        };
+
+        if (start > end)
+        {
+            throw new SessionStartTimeBeforeSessionEndtimeException();
+        }
+
+        TimeSpan minimumDuration = new TimeSpan(0, 15, 0); // 15 minutes
+        TimeSpan sessionDuration = end - start;
+
+        if (sessionDuration < minimumDuration)
+        {
+
+            throw new SessionTooShortException();
+        }
+
         return new SessionDomain(
             Guid.NewGuid(),
             title,
@@ -61,7 +70,7 @@ public class SessionDomain
             false,
             false,
             room,
-            participants,
+            new List<SessionParticipantEntity>(),
             false
             );
     }
