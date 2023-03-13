@@ -11,17 +11,29 @@
     </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Schema\Mutations\Inputs\" />
-    <Folder Include="Schema\Types\" />
-    <Folder Include="Schema\Queries\" />
-  </ItemGroup>
-
-  <ItemGroup>
-	<PackageReference Include="HotChocolate.AspNetCore" Version="13.0.2" />
-	<PackageReference Include="HotChocolate.Types.Analyzers" Version="13.0.2">
+	<PackageReference Include="GraphQL" Version="7.3.0" />
+	<PackageReference Include="HotChocolate.AspNetCore" Version="13.0.4" />
+	<PackageReference Include="HotChocolate.Data" Version="13.0.4" />
+	<PackageReference Include="HotChocolate.Types.Analyzers" Version="13.0.4">
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+	<PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="7.0.3" />
+	<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.3">
+	  <PrivateAssets>all</PrivateAssets>
+	  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+	</PackageReference>
+	<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.3">
+	  <PrivateAssets>all</PrivateAssets>
+	  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+	</PackageReference>
+	<PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="7.0.3" />
+	<PackageReference Include="Realm" Version="10.20.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\YogApp.Domain\YogApp.Domain.csproj" />
+    <ProjectReference Include="..\YogApp.Infrastructure\YogApp.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
