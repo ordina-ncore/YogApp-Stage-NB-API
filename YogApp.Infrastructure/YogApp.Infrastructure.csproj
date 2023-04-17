@@ -7,8 +7,10 @@
   </PropertyGroup>
 
 	<ItemGroup>
+		<PackageReference Include="HotChocolate.AspNetCore.Authorization" Version="13.0.5" />
 		<PackageReference Include="HotChocolate.Data" Version="13.0.4" />
 		<PackageReference Include="LanguageExt.Core" Version="4.4.2" />
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.3" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="7.0.3" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.3">
 		  <PrivateAssets>all</PrivateAssets>
@@ -19,6 +21,8 @@
 		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
 		<PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="7.0.0" />
+		<PackageReference Include="Microsoft.Graph" Version="5.1.0" />
+		<PackageReference Include="Microsoft.Identity.Web" Version="2.5.0" />
 		<PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="7.0.3" />
 	</ItemGroup>
 

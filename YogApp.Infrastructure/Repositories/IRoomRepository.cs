@@ -14,5 +14,6 @@ namespace YogApp.Infrastructure.Repositories
         public List<RoomEntity> GetAll();
         public RoomEntity? GetById(Guid id);
         public bool CheckAvailability(RoomEntity? room, DateTime startDate, DateTime endDate);
+        public bool CheckAvailabilityEditSession(RoomEntity? selectedRoom, DateTime startDate, DateTime endDate, Guid id);
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Graph.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,11 +30,11 @@ namespace YogApp.Infrastructure.Repositories
         }
         public List<SessionEntity> GetAll()
         {
-            return _context.sessions.Include(x => x.Teacher).Include(x => x.Room).Include(x => x.Participants).ThenInclude(x => x.User).ToList();
+            return _context.sessions.Include(x => x.Room).Include(x => x.Participants).ToList();
         }
         public SessionEntity? GetById(Guid id)
         {
-            return _context.sessions.Include(x => x.Teacher).Include(x => x.Room).Include(x => x.Participants).ThenInclude(x => x.User).FirstOrDefault(x => x.Id == id);
+            return _context.sessions.Include(x => x.Room).Include(x => x.Participants).FirstOrDefault(x => x.Id == id);
         }
     }
 }

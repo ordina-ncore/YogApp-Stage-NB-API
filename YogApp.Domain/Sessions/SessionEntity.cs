@@ -12,7 +12,7 @@ public class SessionEntity : EntityBase
     public DateTime StartDateTime { get; set; }
     public DateTime EndDateTime { get; set; }
     public int Capacity { get; set; }
-    public UserEntity Teacher { get; set; }
+    public string TeacherAzureId { get; set; }
     //[Timestamp]
     public string TimeStampAdded { get; set; }
     public bool IsCancelled { get; set; }

@@ -14,12 +14,19 @@ namespace YogApp.API.Schema.Types
             descriptor.Field(x => x.StartDateTime);
             descriptor.Field(x => x.EndDateTime);
             descriptor.Field(x => x.Capacity);
-            descriptor.Field(x => x.Teacher);
+            descriptor.Field(x => x.TeacherAzureId);
+            descriptor.Field("teacher").Type<UserType>().Resolve((context, ct) =>
+            {
+                string teacherAzureId = context.Parent<SessionEntity>().TeacherAzureId;
+                IAzureService azureService = context.Service<IAzureService>();
+                return azureService.ResolveUser(teacherAzureId);
+            });
+
             descriptor.Field(x => x.TimeStampAdded);
             descriptor.Field(x => x.IsCancelled);
             descriptor.Field(x => x.IsFull);
             descriptor.Field(x => x.Room);
-            descriptor.Field(x => x.Participants);
+            descriptor.Field(x => x.Participants) ;
         }
     }
 }

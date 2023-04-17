@@ -32,12 +32,12 @@ namespace YogApp.Infrastructure.Repositories
 
         public List<SessionParticipantEntity> GetAll()
         {
-            return _context.sessionParticipants.Include(x => x.User).ToList();
+            return _context.sessionParticipants.ToList();
         }
 
         public SessionParticipantEntity? GetById(Guid id)
         {
-            return _context.sessionParticipants.Include(x => x.User).FirstOrDefault(x => x.Id == id);
+            return _context.sessionParticipants.FirstOrDefault(x => x.Id == id);
         }
     }
 }

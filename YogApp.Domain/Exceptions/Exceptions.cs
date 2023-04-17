@@ -43,4 +43,16 @@ namespace YogApp.Domain.Exceptions
         {
         }
     }
+    public class CapacityCanNotBeSmallerThanAmountOfParticipantsException : Exception
+    {
+        public CapacityCanNotBeSmallerThanAmountOfParticipantsException() : base("The capacity of the session can not be smaller than the amount of registered users for this session, please remove users from this session before being able to perform this action.")
+        {
+        }
+    }
+    public class CanotNotSignUpForTakenMatException : Exception
+    {
+        public CanotNotSignUpForTakenMatException() : base("This mat has already been taken.")
+        {
+        }
+    }
 }

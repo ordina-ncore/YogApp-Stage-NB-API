@@ -6,6 +6,7 @@ namespace YogApp.API.Schema.Mutations.Inputs
     {
 
         public int MatNumber { get; set; }
-        public UserEntity User { get; set; }
+        public Guid SessionId { get; set; }
+        public string UserAzureId { get; set; }
     }
 }

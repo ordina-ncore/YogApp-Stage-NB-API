@@ -1,11 +1,8 @@
-﻿using YogApp.Domain.Rooms;
-using YogApp.Domain.SessionParticipants;
-using YogApp.Domain.Users;
-
-namespace YogApp.API.Schema.Mutations.Inputs
+﻿namespace YogApp.API.Schema.Mutations.Inputs
 {
-    public class CreateSessionInput
+    public class EditSessionInput
     {
+        public Guid Id { get; set; }
         public string Title { get; set; }
 
         public DateTime StartDateTime { get; set; }

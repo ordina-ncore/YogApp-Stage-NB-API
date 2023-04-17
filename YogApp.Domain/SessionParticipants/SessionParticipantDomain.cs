@@ -12,7 +12,7 @@ namespace YogApp.Domain.SessionParticipants
     public class SessionParticipantDomain
     {
         public SessionParticipantEntity entity { get; }
-        private SessionParticipantDomain(Guid id, int matNumber,string timeStampSignUp, bool hasCancelled, UserEntity user, bool isDeleted)
+        private SessionParticipantDomain(Guid id, int matNumber,string timeStampSignUp, bool hasCancelled, string userAzureId, bool isDeleted)
         {
             entity = new SessionParticipantEntity()
             {
@@ -20,7 +20,7 @@ namespace YogApp.Domain.SessionParticipants
                 MatNumber = matNumber,
                 TimeStampSignUp= timeStampSignUp,
                 HasCancelled= hasCancelled,
-                User = user,
+                UserAzureId = userAzureId,
                 IsDeleted = isDeleted
             };
         }
@@ -30,14 +30,14 @@ namespace YogApp.Domain.SessionParticipants
         {
             return new SessionParticipantDomain(entity);
         }
-        public static SessionParticipantDomain Create(int matNumber, UserEntity user)
+        public static SessionParticipantDomain Create(int matNumber, string userAzureId)
         {
             return new SessionParticipantDomain(
                 Guid.NewGuid(),
                 matNumber,
                 DateTime.Now.ToUniversalTime().ToString(),
                 false,
-                user,
+                userAzureId,
                 false
                 );
         }

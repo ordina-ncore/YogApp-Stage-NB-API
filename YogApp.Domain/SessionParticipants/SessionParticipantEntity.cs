@@ -5,7 +5,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using YogApp.Domain.Shared;
-using YogApp.Domain.Users;
 
 namespace YogApp.Domain.SessionParticipants
 {
@@ -15,7 +14,7 @@ namespace YogApp.Domain.SessionParticipants
         //[Timestamp]
         public string TimeStampSignUp { get; set; }
         public bool HasCancelled { get; set; }
-        public UserEntity User { get; set; }
+        public string UserAzureId { get; set; }
 
     }
 }

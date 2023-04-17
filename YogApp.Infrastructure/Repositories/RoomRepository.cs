@@ -42,7 +42,19 @@ namespace YogApp.Infrastructure.Repositories
         {
             List<SessionEntity> betweenDateTimesSessions = _context.sessions.Where(x => (x.StartDateTime >= startDate && x.StartDateTime <= endDate) || (x.EndDateTime >= startDate && x.EndDateTime <= endDate) && !x.IsCancelled && !x.IsDeleted).Include(x => x.Room).ToList();
             foreach(SessionEntity session in betweenDateTimesSessions) {
-                if(session.Room== selectedRoom)
+                if(session.Room == selectedRoom)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+        public bool CheckAvailabilityEditSession(RoomEntity? selectedRoom, DateTime startDate, DateTime endDate, Guid id)
+        {
+            List<SessionEntity> betweenDateTimesSessions = _context.sessions.Where(x => (x.StartDateTime >= startDate && x.StartDateTime <= endDate) || (x.EndDateTime >= startDate && x.EndDateTime <= endDate) && !x.IsCancelled && !x.IsDeleted).Include(x => x.Room).ToList();
+            foreach (SessionEntity session in betweenDateTimesSessions)
+            {
+                if (session.Room == selectedRoom && session.Id != id)
                 {
                     return false;
                 }
