@@ -36,5 +36,10 @@ namespace YogApp.Infrastructure.Repositories
         {
             return _context.sessions.Include(x => x.Room).Include(x => x.Participants).FirstOrDefault(x => x.Id == id);
         }
+        public List<SessionEntity?> GetAllFutureSessionsForRoom(Guid roomId)
+        {
+            DateTime now = DateTime.UtcNow;
+            return _context.sessions.Include(x => x.Room).Where(x => (x.StartDateTime >= now) && (x.Room.Id == roomId)).ToList();
+        }
     }
 }

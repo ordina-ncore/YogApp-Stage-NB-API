@@ -15,10 +15,11 @@ namespace YogApp.DomainTests
             // Arrange
             string name = "Test Room";
             string address = "123 Main St";
+            string description = "1ffzfzff";
             int capacity = 10;
 
             // Act
-            var entity = RoomDomain.Create(name, address, capacity).entity;
+            var entity = RoomDomain.Create(name, address, capacity, description).entity;
 
             // Assert
             Assert.That(entity.Name, Is.SameAs(name));
@@ -37,6 +38,7 @@ namespace YogApp.DomainTests
                 Name = "Test Room",
                 Address = "123 Main St",
                 Capacity = 10,
+                Description = "blabla",
                 IsDeleted = false
             };
 

@@ -13,6 +13,8 @@ namespace YogApp.API.Schema.Types
             descriptor.Field(x => x.Name);
             descriptor.Field(x => x.Address);
             descriptor.Field(x => x.Capacity);
+            descriptor.Field(x => x.Description);
+            descriptor.Field(x => x.IsDeleted);
         }
     }
 }

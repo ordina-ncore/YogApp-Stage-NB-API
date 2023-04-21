@@ -16,5 +16,6 @@ namespace YogApp.Infrastructure.Repositories
         public void AppendChanges(SessionEntity entity);
         public List<SessionEntity> GetAll();
         public SessionEntity? GetById(Guid id);
+        public List<SessionEntity?> GetAllFutureSessionsForRoom(Guid roomId);
     }
 }

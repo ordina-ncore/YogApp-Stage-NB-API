@@ -39,6 +39,7 @@ builder.Services.AddScoped<IAzureService, AzureService>();
 builder.Services.AddScoped<ISessionService, SessionService>();
 builder.Services.AddScoped<ISessionParticipantRepository, SessionParticipantRepository>();
 builder.Services.AddScoped<ISessionRepository, SessionRepository>();
+builder.Services.AddScoped<IRoomService, RoomService>();
 builder.Services.AddErrorFilter<GraphQLErrorFilter>();
 builder.Services.AddMsGraphConfiguration(builder.Configuration);
 

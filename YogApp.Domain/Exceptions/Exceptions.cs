@@ -55,4 +55,16 @@ namespace YogApp.Domain.Exceptions
         {
         }
     }
+    public class CanNotReduceCapacityIfRoomIsPlannedForUpcomingSessionException : Exception
+    {
+        public CanNotReduceCapacityIfRoomIsPlannedForUpcomingSessionException() : base("You can not reduce the capacity of this room because it is being used in an upcoming session, please edit the room of the session before performing this action.")
+        {
+        }
+    }
+    public class CanNotDeleteRoomIfRoomIsPlannedForUpcomingSessionException : Exception
+    {
+        public CanNotDeleteRoomIfRoomIsPlannedForUpcomingSessionException() : base("You can not delete this room because it is being used in an upcoming session, please edit the room of the session before performing this action.")
+        {
+        }
+    }
 }
