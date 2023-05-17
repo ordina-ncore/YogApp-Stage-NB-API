@@ -1,9 +1,12 @@
 ﻿using Azure.Identity;
 using LanguageExt;
 using Microsoft.Graph;
+using Microsoft.Graph.Models;
 using Microsoft.Kiota.Abstractions;
+using Realms.Sync;
 using YogApp.Domain.Users;
 using YogApp.Infrastructure.Migrations;
+using User = YogApp.Domain.Users.User;
 
 namespace YogApp.API
 {
@@ -22,8 +25,6 @@ namespace YogApp.API
             {
                 requestConfiguration.QueryParameters.Select = new string[] { "givenName", "surname", "photo" };
             });
-
-
 
             var firstName = user.GivenName;
             var lastName = user.Surname;
@@ -67,6 +68,43 @@ namespace YogApp.API
                 }
             }
             return teacherList;
+        }
+
+        public async Task<bool> AddEventToCalendar(string azureId, string subject, string body, DateTime start, DateTime end)
+        {
+            //getCalendars();
+            //    Get the user's calendar
+            var calendar = await _graphClient.Users[azureId].Calendar.GetAsync();
+
+            //    Create the new event
+            var newEvent = new Event
+            {
+                Subject = subject,
+                Body = new ItemBody { Content = body },
+                Start = new DateTimeTimeZone { DateTime = start.ToString("o"), TimeZone = TimeZoneInfo.Local.Id },
+                End = new DateTimeTimeZone { DateTime = end.ToString("o"), TimeZone = TimeZoneInfo.Local.Id }
+            };
+
+            //Add the event to the user's calendar
+           // await _graphClient.Users[azureId].Calendar.Events.AddAsync(newEvent);
+
+            return true;
+        }
+        public async Task<string> CreateCalendar()
+        {
+            var requestBody = new Calendar
+            {
+                Name = "Ordina Yoga",
+            };
+            var result = await _graphClient.Me.Calendars.PostAsync(requestBody);
+            return result.Id;
+        }
+
+        public async Task<string> getCalendars()
+        {
+            var result = await _graphClient.Me.Calendars.GetAsync();
+            int test = 2;
+            return "calendarId";
         }
     }
 }

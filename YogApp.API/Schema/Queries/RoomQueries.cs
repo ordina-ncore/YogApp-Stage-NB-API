@@ -19,7 +19,7 @@ public static class RoomQueries
     {
         return repo.GetAll();
     }
-    [Authorize(Roles = new[] {"Teacher"})]
+    [Authorize(Roles = new[] {"Teacher", "User"})]
     public static RoomEntity? GetRoom([Service] IRoomRepository repo, Guid id)
     {
         return repo.GetById(id);

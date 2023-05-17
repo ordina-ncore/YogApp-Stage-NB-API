@@ -19,9 +19,10 @@ public static class SessionParticipantMutations
     public static async Task<SessionParticipantEntity> CreateSessionParticipant(
         [Service] ISessionParticipantRepository repo,
         [Service] ISessionRepository sessionRepo,
+        [Service] IAzureService azureService,
         CreateSessionParticipantInput input,
         CancellationToken ct,
-        [Service] ITopicEventSender eventSender)// Inject the IServiceProvider for resolving the session entity after it has been updated
+        [Service] ITopicEventSender eventSender)
     {
         SessionEntity session = sessionRepo.GetById(input.SessionId);
         SessionParticipantDomain sessionParticipant = SessionParticipantDomain.Create(input.MatNumber, input.UserAzureId);
@@ -30,11 +31,10 @@ public static class SessionParticipantMutations
             if (participant.MatNumber == input.MatNumber) throw new CanotNotSignUpForTakenMatException();
         }
         session.Participants.Add(sessionParticipant.entity);
+       // await azureService.AddEventToCalendar(input.UserAzureId, "test", "bodytest", session.StartDateTime, session.EndDateTime);
         repo.AppendChanges(sessionParticipant.entity);
         await repo.SaveAsync(ct);
 
-        // Resolve a new instance of the session entity from the session repository after it has been updated
-        // This is necessary to ensure that the session entity returned by the event sender contains the latest changes
         var updatedSession = sessionRepo.GetById(session.Id);
 
         await eventSender.SendAsync(sessionChanged, updatedSession, ct);
